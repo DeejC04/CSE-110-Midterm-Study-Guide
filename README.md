@@ -200,26 +200,70 @@ You may be slightly confused as to why String is not valid. That is because Stri
 ### 5. Identify Java primitive types by literal value
 
 - Which of the following Java literals have the data type float? Choose all that apply.
+
+```
+a) 5.25
+b) 5.25f
+c) 5.0
+d) '\n'
+e) 5f
+f) '5'
+g) false
+h) "true"
+i) true
+j) 123
+k) -5
+l) "5.0"
+```
+
+### Explanation
+
+If you recall, the only way a value can be denoted as a float is by appending `f` to the end. This is because, otherwise, Java will default any numeric floating point value to a double, or non floating point value to an integer. With this, we can identify the floats.
+
+**b** is a float, as stated by the f at the end
+
+**e** is also a float
+
+Aside from those two, none are float values. They are either Strings, doubles, integers, or chars.
+
 ### 6. Identify Java primitive types by expression
+
+IN PROGRESS
 
 ### 7. Choose the best Java data type
 
+IN PROGRESS
+
+
 ### 8. Declare a variable of a specified primitive type
+
+IN PROGRESS
 
 ### 9. Using string class methods (charAt)
 
+IN PROGRESS
+
 ### 10. Using string class methods (compareTo)
+
+IN PROGRESS
 
 ### 11. Using string class methods (equals)
 
+IN PROGRESS
+
 ### 12. Using string class methods (indexOf)
+
+IN PROGRESS
 
 ### 13. Using string class methods (length)
 
+IN PROGRESS
+
 ### 14. Using string class methods (substring)
+
+IN PROGRESS
 
 ### 15. Trace and evaluate code with multiple methods
 
-- What will this small program output?
-
+IN PROGRESS
 
