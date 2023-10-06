@@ -303,7 +303,40 @@ The answer is **7**, `S`
 
 ### 10. Using string class methods (compareTo)
 
-IN PROGRESS
+- Given the following declarations:
+     ```java
+     String s1 = "a banana";
+     String s2 = "banana";
+    ```
+Evaluate the expression: `s1.compareTo(s2) < 0`
+
+```
+a) false
+b) none of these
+c) true
+```
+
+### Explanation
+
+In all honesty, this is actually a method I struggled with! I understood **what** it would evaluate to, but I never understood why. That was, until I really thought about it and did some testing.
+
+Recall that the `compareTo()` method compares two strings lexicographically (just a fancy way of saying alphabetical order). Its responses are a bit cryptic, so, I'll explain.
+
+Consider the two strings we're given. `"a banana"` and `"banana"`. Now, I want you to remember that each character is represented by a certain numeric value. This is how binary translates to characters.
+
+Let's look at the first letter of each string. `a`, and `b`. Obviously, you and I can tell that String `s1` comes before String `s2`, and we do this by looking at the first letter. If the first letters are equal, we check the second, etc.. The computer does the same, except numerically!
+
+So, in the ASCII table (chart containing letters and their numeric values), the values of lowercase a (`a`) and lowercase b (`b`) are 97 and 98 respectively.
+
+The `compareTo()` method will compare the first letters first, as I said earlier. So, instead of comparing the letters themselves, let's compare their ASCII values!
+
+`s1`'s first letter is a, so it equals 97.
+
+`s2`'s first letter is b, so it equals 98.
+
+`97 - 98 = -1`. This is less than zero, which means the answer is **c**, true. 
+
+To sum up, `compareTo()` subtracts `s2` from `s1` (their first respective letters), and returns that numeric value. This means we can check if one comes before another alphabetically by comparing the numeric value to zero. If `s2`'s letter was before `s1`'s, the number would be positive since a smaller number would be subtracted. And don't forget that if the first letters of each string are the same, it will move to the second letter, and so on.
 
 ### 11. Using string class methods (equals)
 
