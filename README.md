@@ -226,6 +226,31 @@ If you recall, the only way a value can be denoted as a float is by appending `f
 
 Aside from those two, none are float values. They are either Strings, doubles, integers, or chars.
 
+- Which of the following Java literals have the data type char? Choose all that apply.
+
+```
+a) 5.25
+b) 5.25f
+c) 5.0
+d) '\n'
+e) 5f
+f) '5'
+g) false
+h) "true"
+i) true
+j) 123
+k) -5
+l) "5.0"
+```
+
+### Explanation
+
+A char is, just that, a character, They are denoted by single quotes around them. With this information, we can see that **d** and **f** are chars. 
+
+**d** is a newline character. Although it technically contains two characters (a backslash and an `n`), it is still read as a single, newline character.
+
+**f** is just a character representing the number 5. It is not a String or int, even though it's a number. The single quotes on both sides prove this.
+
 ### 6. Identify Java primitive types by expression
 
 IN PROGRESS
@@ -241,7 +266,40 @@ IN PROGRESS
 
 ### 9. Using string class methods (charAt)
 
-IN PROGRESS
+- Given the following declaration: String s = "Go_Sun_Devils";
+
+    Evaluate the expression: s.charAt(3)
+
+```
+1) 'Go_Su'
+2) 'Go_S'
+3) 'Go_'
+4) 'Go'
+5) 'n'
+6) 'u'
+7) 'S'
+8) '_'
+9) 'o'
+10) 'G'
+11) none of these
+```
+
+### Explanation
+
+Indices are extremely useful tools. I know a lot of you guys were struggling with this and other related methods, but I'm here to help. So, all the `charAt()` method does is returns the character at the given index. 
+
+Remember that indeces start at 0, and count up. With this info, we can find `charAt(3)`.
+
+Refer to the table below
+
+| G | o | _ | S | u | n | _ | D | e | v | i  | l  | s  |
+| - | - | - | - | - | - | - | - | - | - | -- | -- | -- |
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 |
+
+When looking at what index corresponds to which character, this question becomes extremely simple! 
+
+The answer is **7**, `S`
+
 
 ### 10. Using string class methods (compareTo)
 
