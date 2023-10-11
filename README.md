@@ -340,11 +340,63 @@ To sum up, `compareTo()` subtracts `s2` from `s1` (their first respective letter
 
 ### 11. Using string class methods (equals)
 
-IN PROGRESS
+- Given the following declarations: 
+
+```
+String s1 = "carrot";
+String s2 = "carrot";
+```
+Evaluate the expression: s2.equals(s1)
+
+    a) false
+    b) none of these
+    c) true
+
+### Explanation
+
+Equals is one of, if not the easiest string class method to use. It's literally just asking, does string 1 equal string 2. The method returns a `boolean`: 
+- `true`, if the strings are equal
+- `false`, if they are not
+
+I'm going to explain a bit more of a niche case that people tend to get confused on:
+
+```
+String s1 = "carrot";
+String s2 = "Carrot";
+```
+The two above strings, when compared via `s2.equals(s1)`, will return `false`. Different case characters are evaluated as completely separate. Also, note that whitespace counts as difference too.
+
+To circle back though, in the case of the original problem, the returned value will be true. The cases are equal and the strings are identical, so the answer is **c**.
 
 ### 12. Using string class methods (indexOf)
 
-IN PROGRESS
+- Given the following declaration: String s = "Bananas and apples are yummy.";
+Evaluate the expression: s.indexOf("A")
+```
+a) 0  
+b) 1  
+c) 2  
+d) 3  
+e) 13  
+f) -1  
+g) 5  
+h) none of these  
+i) 0  
+```
+
+### Explanation
+
+This is another method that is fairly simple, but people tend to get confused on due to its slight intracacies. If you recall, we went over the `charAt` method a few problems above. Think of the `indexOf` method as the inverse of the `charAt` method. While `charAt` finds the character at a certain index, the `indexOf` method finds the index of a certain character or substring (part of a string).
+
+If the character specified in the arguments passed to `indexOf` does not exist in the provided string, the method will return `-1`.
+
+| B | a | n | a | n | a | s |   | a | n | d  |    | a  | p  | p  | l  | e  | s  |    | a  | r  | e  |    | y  | u  | m  | m  | y  |
+| - | - | - | - | - | - | - | - | - | - | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 |
+
+Looking at the above chart, let's analyze each character. This is a bit of a trick question. It asks you if there is an `A`. If you recall, a capital leter and a lowercase letter are not registered as the same character. Therefore, `A` is not in this string. 
+
+Meaning, the result will be **f**, which is -1
 
 ### 13. Using string class methods (length)
 
