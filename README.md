@@ -340,63 +340,11 @@ To sum up, `compareTo()` subtracts `s2` from `s1` (their first respective letter
 
 ### 11. Using string class methods (equals)
 
-- Given the following declarations: 
-
-```
-String s1 = "carrot";
-String s2 = "carrot";
-```
-Evaluate the expression: s2.equals(s1)
-
-    a) false
-    b) none of these
-    c) true
-
-### Explanation
-
-Equals is one of, if not the easiest string class method to use. It's literally just asking, does string 1 equal string 2. The method returns a `boolean`: 
-- `true`, if the strings are equal
-- `false`, if they are not
-
-I'm going to explain a bit more of a niche case that people tend to get confused on:
-
-```
-String s1 = "carrot";
-String s2 = "Carrot";
-```
-The two above strings, when compared via `s2.equals(s1)`, will return `false`. Different case characters are evaluated as completely separate. Also, note that whitespace counts as difference too.
-
-To circle back though, in the case of the original problem, the returned value will be true. The cases are equal and the strings are identical, so the answer is **c**.
+IN PROGRESS
 
 ### 12. Using string class methods (indexOf)
 
-- Given the following declaration: String s = "Bananas and apples are yummy.";
-Evaluate the expression: s.indexOf("A")
-```
-a) 0  
-b) 1  
-c) 2  
-d) 3  
-e) 13  
-f) -1  
-g) 5  
-h) none of these  
-i) 0  
-```
-
-### Explanation
-
-This is another method that is fairly simple, but people tend to get confused on due to its slight intracacies. If you recall, we went over the `charAt` method a few problems above. Think of the `indexOf` method as the inverse of the `charAt` method. While `charAt` finds the character at a certain index, the `indexOf` method finds the index of a certain character or substring (part of a string).
-
-If the character specified in the arguments passed to `indexOf` does not exist in the provided string, the method will return `-1`.
-
-| B | a | n | a | n | a | s |   | a | n | d  |    | a  | p  | p  | l  | e  | s  |    | a  | r  | e  |    | y  | u  | m  | m  | y  |
-| - | - | - | - | - | - | - | - | - | - | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 |
-
-Looking at the above chart, let's analyze each character. This is a bit of a trick question. It asks you if there is an `A`. If you recall, a capital leter and a lowercase letter are not registered as the same character. Therefore, `A` is not in this string. 
-
-Meaning, the result will be **f**, which is -1
+IN PROGRESS
 
 ### 13. Using string class methods (length)
 
@@ -408,5 +356,144 @@ IN PROGRESS
 
 ### 15. Trace and evaluate code with multiple methods
 
+- What will this small program output?
+
+```java
+class Main {
+    private static void foo() {
+        int x = 15;
+    }
+
+    private static int x = 3;
+
+    public static void main(String[] args) {
+        foo();
+        System.out.println(x);
+    }
+}
+```
+
+### Explanation
+
 IN PROGRESS
 
+- What is the output of this Java program?
+```java
+class Driver {
+  public static void main(String[] args) {
+    int a = foo(8);
+    int b = bar(a);
+  }
+
+  static int foo(int a) {
+    a = bar(a - 2);
+    System.out.print(a);
+    return a;
+  }
+
+  static int bar(int a) {
+    a = a - 1;
+    System.out.print(a);
+    return a + 1;
+  }
+}
+```
+
+### Explanation
+IN PROGRESS
+
+- What is the output of this Java program?
+
+```java
+class Driver {
+  public static void main(String[] args) {
+    int a = bar(2);
+    int b = foo(a);
+    System.out.print(b);
+  }
+
+  static int foo(int a) {
+    a = bar(a) - 2;
+    return a;
+  }
+
+  static int bar(int a) {
+    System.out.print(a);
+    return a + 1;
+  }
+} 
+```
+
+### Explanation
+
+For this problem, we have a class, a main mehod, and two user-defined methods (`foo()` and `bar()`). Looking at the main method, we can get started with figuring out what this code does.
+
+The first statement declares a variable, `a`, and initializes it to the value of `bar(2)`. This means, we should look into the `bar()` method.
+
+```java
+static int bar(int a) {
+    System.out.print(a);
+    return a + 1;
+  }
+```
+
+We can see that `bar()` does two things.  
+1. It prints the value of the input integer, `a`.
+2. It then returns the value of `a + 1`.
+
+When considering this method with the given input, `2`, the method will execute as follows:
+1. It will print `2` to the console
+2. It will then return `2 + 1`, which is `3`.
+
+Therefore, of `a` in our main method, is the value of `bar(2)` (which is `3`).
+
+**So far, the console output is `2`**
+
+Let's go to the next line.
+
+This declares and initializes another variable, `int b`, to the value of `foo(a)`. Recall that `a` in the main method is now assigned to 3, because of the above line.
+
+We can now evaluate `foo(a)` as `foo(3)`. Stepping into `foo()`:
+
+```java
+  static int foo(int a) {
+    a = bar(a) - 2;
+    return a;
+  }
+```
+
+`foo()` has a single int parameter, `a`, which in our case is equal to `3`. Let's evaluate line by line.
+
+In the first line of `foo()`, a is reassigned to the value of `bar(a)` minus 2.
+
+So, we can step into `bar()` again, but this time with our current value of `a`. This will be `bar(3)`. We remember that `bar()` prints the current value of `a`, then adds 1. So, since the parameter, `a`, is `3`, that means that it will return `4`.
+
+**Since it printed the current value of `a`, the new current console output is `23`. The `2` comes from our previous calling of `bar()`**
+
+Circling back, we remember that `a` (within `foo()`) is being reassigned to `bar(a)` minus 2. So, `4 - 2` is equal to `2`. 
+
+Finally, the value of `a` is returned, which is `2`.
+
+As a last step, we can return to the main method.
+
+```java
+  public static void main(String[] args) {
+    int a = bar(2);
+    int b = foo(a);
+    System.out.print(b);
+  }
+  ```
+
+Since we have our values of the two variables now, we can even write the main method as:
+
+```java
+  public static void main(String[] args) {
+    int a = 3;
+    int b = 2;
+    System.out.print(b);
+  }
+  ```
+
+Finally, the program prints the value of `b`, which, as we see, is equal to `2`. The program prints `2`, which means a **final console output of `232`.**
+
+Note that there are no newlines because the program uses `System.out.print()` rather than `System.out.println()`
